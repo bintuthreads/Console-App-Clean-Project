@@ -1,11 +1,12 @@
-using ConsoleAppCleanProject.Domain;
+﻿using ConsoleAppCleanProject.Domain;
+using ConsoleAppCleanProject.Services;
 using ConsoleAppCleanProject.Services.StudentService;
 
 namespace ConsoleAppCleanProject.UserHandler;
 
-public static class StudentUserInputHandler
+public class LecturerServiceHandler
 {
-    public static void Run() //entering point
+     public static void Run() //entering point
     {
         
         // infinite loop to keep the user running until the user exit
@@ -22,7 +23,7 @@ public static class StudentUserInputHandler
             var adminpass = Console.ReadLine();
          
             
-            if(!(StudentServiceRepository.ValidateAdmin(adminId, adminpass)))
+            if(!(LecturerServiceRepository.ValidateAdmin(adminId, adminpass)))
             {
                 Console.WriteLine("Invalid Credentials");
                 return;
@@ -34,7 +35,7 @@ public static class StudentUserInputHandler
             var running = true;
             while (running)
             {
-                Console.WriteLine("1. Add student 2.\nGet studentby ID. 3.\nview all students 4.\nDelete student 5.\nExit");
+                Console.WriteLine("1. Add Lecturer \n2.Get lecturer by ID. \n3. view all lecturer \n4.Delete vendor \n5.Exit");
                 Console.Write("Select an option: ");
 
                 var option = Console.ReadLine();
@@ -62,7 +63,7 @@ public static class StudentUserInputHandler
                         }
 
                         // Add Student 
-                        StudentServiceRepository.AddStudent(name, age, address, newGender);
+                        LecturerServiceRepository.AddLecturer(name, age, address, newGender);
                         break;
 
                     case "2":
@@ -71,46 +72,46 @@ public static class StudentUserInputHandler
                         Console.WriteLine("Get student by ID");
                         Console.WriteLine("-------------------------");
                         Console.WriteLine("Enter student ID: ");
-                        var studentId = Console.ReadLine();
-                        var student = StudentServiceRepository.GetStudentbyId(studentId);
-                        if (student != null)
+                        var lecturerId = Console.ReadLine();
+                        var lecturer = LecturerServiceRepository.GetLecturerbyId(lecturerId);
+                        if (lecturer != null)
                         {
                             Console.WriteLine(
-                                $"Student Found: {student.Name}.\nAge: {student.Age}.\nGender: {student.Gender}\nStudentId: {studentId}");
+                                $"Lecturer Found: {lecturer.Name}.\nAge: {lecturer.Age}.\nGender: {lecturer.Gender}\nlecturerId: {lecturerId}");
                         }
                         else
                         {
-                            Console.WriteLine($"Student not found.");
+                            Console.WriteLine($"Lecturer not found.");
                         }
 
                         break;
 
                     case "3":
                         Console.WriteLine("-------------------------");
-                        Console.WriteLine("Get all students");
+                        Console.WriteLine("Get all lectures");
                         Console.WriteLine("-------------------------");
-                        var students = StudentServiceRepository.GetAllStudents();
+                        var lecturers = LecturerServiceRepository.GetAllLecturers();
 
-                        if (students.Count == 0)
+                        if (lecturers.Count == 0)
                         {
-                            Console.WriteLine("No student found!");
+                            Console.WriteLine("No lecturer found!");
                         }
                         else
                         {
-                            foreach (var s in students)
-                                Console.WriteLine($"Student Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nStudentId: {s.StudentId}");
+                            foreach (var s in lecturers)
+                                Console.WriteLine($"Lecturer Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nLecturerId: {s.LecturerId}");
                         }
                         break;
                     case "4":
-                        Console.Write("Enter student ID to delete: ");
+                        Console.Write("Enter lecturer ID to delete: ");
                         var deleteID = Console.ReadLine();
-                        if (StudentServiceRepository.DeleteStudent(deleteID))
+                        if (LecturerServiceRepository.DeleteLecturer(deleteID))
                         {
-                            Console.WriteLine("Student Deleted Successfully!");
+                            Console.WriteLine("Lecturer Deleted Successfully!");
                         }
                         else
                         {
-                            Console.WriteLine("Student not found");
+                            Console.WriteLine("Lecturer not found");
                         }
                         break;
 

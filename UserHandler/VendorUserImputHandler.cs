@@ -1,9 +1,9 @@
-using ConsoleAppCleanProject.Domain;
+﻿using ConsoleAppCleanProject.Domain;
 using ConsoleAppCleanProject.Services.StudentService;
 
 namespace ConsoleAppCleanProject.UserHandler;
 
-public static class StudentUserInputHandler
+public class VendorUserImputHandler
 {
     public static void Run() //entering point
     {
@@ -22,7 +22,7 @@ public static class StudentUserInputHandler
             var adminpass = Console.ReadLine();
          
             
-            if(!(StudentServiceRepository.ValidateAdmin(adminId, adminpass)))
+            if(!(VendorServiceRepository.ValidateAdmin(adminId, adminpass)))
             {
                 Console.WriteLine("Invalid Credentials");
                 return;
@@ -34,7 +34,7 @@ public static class StudentUserInputHandler
             var running = true;
             while (running)
             {
-                Console.WriteLine("1. Add student 2.\nGet studentby ID. 3.\nview all students 4.\nDelete student 5.\nExit");
+                Console.WriteLine("1. Add vendor \n2. Get vendorby ID. \n3. view all vendors \n4. Delete vendor \n5.Exit");
                 Console.Write("Select an option: ");
 
                 var option = Console.ReadLine();
@@ -62,7 +62,7 @@ public static class StudentUserInputHandler
                         }
 
                         // Add Student 
-                        StudentServiceRepository.AddStudent(name, age, address, newGender);
+                        VendorServiceRepository.AddVendor(name, age, address, newGender);
                         break;
 
                     case "2":
@@ -71,46 +71,46 @@ public static class StudentUserInputHandler
                         Console.WriteLine("Get student by ID");
                         Console.WriteLine("-------------------------");
                         Console.WriteLine("Enter student ID: ");
-                        var studentId = Console.ReadLine();
-                        var student = StudentServiceRepository.GetStudentbyId(studentId);
-                        if (student != null)
+                        var vendorId = Console.ReadLine();
+                        var vendor = VendorServiceRepository.GetVendorbyId(vendorId);
+                        if (vendor != null)
                         {
                             Console.WriteLine(
-                                $"Student Found: {student.Name}.\nAge: {student.Age}.\nGender: {student.Gender}\nStudentId: {studentId}");
+                                $"Vendor Found: {vendor.Name}.\nAge: {vendor.Age}.\nGender: {vendor.Gender}\nvendorId: {vendorId}");
                         }
                         else
                         {
-                            Console.WriteLine($"Student not found.");
+                            Console.WriteLine($"Vendor not found.");
                         }
 
                         break;
 
                     case "3":
                         Console.WriteLine("-------------------------");
-                        Console.WriteLine("Get all students");
+                        Console.WriteLine("Get all vendor");
                         Console.WriteLine("-------------------------");
-                        var students = StudentServiceRepository.GetAllStudents();
+                        var vendors = VendorServiceRepository.GetAllVendors();
 
-                        if (students.Count == 0)
+                        if (vendors.Count == 0)
                         {
-                            Console.WriteLine("No student found!");
+                            Console.WriteLine("No vendor found!");
                         }
                         else
                         {
-                            foreach (var s in students)
-                                Console.WriteLine($"Student Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nStudentId: {s.StudentId}");
+                            foreach (var s in vendors)
+                                Console.WriteLine($"Vendors Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nVendorId: {s.VendorId}");
                         }
                         break;
                     case "4":
-                        Console.Write("Enter student ID to delete: ");
+                        Console.Write("Enter vendor ID to delete: ");
                         var deleteID = Console.ReadLine();
-                        if (StudentServiceRepository.DeleteStudent(deleteID))
+                        if (deleteID != null && VendorServiceRepository.Deletevendor(deleteID))
                         {
-                            Console.WriteLine("Student Deleted Successfully!");
+                            Console.WriteLine("Vendor Deleted Successfully!");
                         }
                         else
                         {
-                            Console.WriteLine("Student not found");
+                            Console.WriteLine("Vendor not found");
                         }
                         break;
 

@@ -6,57 +6,44 @@ namespace ConsoleAppCleanProject.Services.StudentService;
 public static class StudentServiceRepository
 {
     private static Admin _admin = new Admin();
-    private static List<Student> _students = new List<Student>();
-    
-    
-    
-    public static bool ValidateAdmin(string adminId , string password) 
+    private static List<Student> _students = new List<Student>(); // saving the list of the students
+
+
+    public static bool ValidateAdmin(string adminId, string password) // for validation of the amin passwaord and ID
     {
         return _admin.AdminId == adminId && _admin.Password == password;
     }
-    public static void AddStudent(string name ,string age , string address, Gender gender)
+
+    public static void AddStudent(string name, string age, string address, Gender gender) 
     {
-        
-        
-        _students.Add(new Student(name, age, address, gender));
-        Console.WriteLine("Student added successfully");
-        Console.WriteLine("-------------------------------");
-        Console.WriteLine("-------------------------------");
+
+
+        _students.Add(new Student(name, age, address, gender)); //To add new students
+
     }
 
-    public static void  GetStudentbyId(string studentId)
+    public static Student GetStudentbyId(string studentId)
     {
-        var student =  _students.Find(x => x.StudentId == studentId);
-        if (student != null)
-        {
-            Console.WriteLine($"Student found: {student.Name}");
-        }
-        else
-        {
-            Console.WriteLine("Student not found");
-        }
-        
+         return _students.Find(x => x.StudentId == studentId); // to get a student by ID
+
     }
-    public static void DeleteStudent(string studentId)
+
+    public static bool DeleteStudent(string studentId) // to delete student
     {
-        var student =  _students.Find(x => x.StudentId == studentId);
+        var student = _students.Find(x => x.StudentId == studentId);
         if (student != null)
         {
             _students.Remove(student);
-            Console.WriteLine("Student removed successfully");
+            return true;
         }
-        else
-        {
-            Console.WriteLine("Student not found");
-        }
+
+        return false;
     }
-    public static void  GetAllStudents()
-    {
-        foreach (var student in _students )
-        {
-            Console.WriteLine($"Student found: {student.Name} and StudentID {student.StudentId}");
-            
-        }
-    }
+
+
+public static List<Student> GetAllStudents() // calling for students list
+{
+    return _students;
+}
     
 }
