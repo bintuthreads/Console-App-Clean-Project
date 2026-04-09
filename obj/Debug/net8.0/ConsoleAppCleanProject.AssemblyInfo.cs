@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsoleAppCleanProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d481f47d00942143ceef6c550064a9e51145e39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ba81625dc70a26f00b34395e1c843b919d574bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsoleAppCleanProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsoleAppCleanProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

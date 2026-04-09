@@ -76,7 +76,7 @@ public class VendorUserImputHandler
                         if (vendor != null)
                         {
                             Console.WriteLine(
-                                $"Vendor Found: {vendor.Name}.\nAge: {vendor.Age}.\nGender: {vendor.Gender}\nvendorId: {vendorId}");
+                                $"Vendor Found: {vendor.Name}.\nAge: {vendor.Age}.\nAddress: {vendor.Address}\nGender: {vendor.Gender}\nvendorId: {vendorId}");
                         }
                         else
                         {
@@ -98,7 +98,7 @@ public class VendorUserImputHandler
                         else
                         {
                             foreach (var s in vendors)
-                                Console.WriteLine($"Vendors Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nVendorId: {s.VendorId}");
+                                Console.WriteLine($"Vendors Name: {s.Name}.\nAge: {s.Age}.\nAddress {s.Address}\nGender: {s.Gender}\nVendorId: {s.VendorId}");
                         }
                         break;
                     case "4":

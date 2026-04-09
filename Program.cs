@@ -22,6 +22,7 @@
 // lecture1.StaffId = "123456";
 // lecture1.Gender = Gender.Male;
 
+
 using ConsoleAppCleanProject.UserHandler;
 
-StudentUserInputHandler.Run();
+ProgramRunning.run();

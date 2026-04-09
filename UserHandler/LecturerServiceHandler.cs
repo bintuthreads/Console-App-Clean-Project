@@ -72,12 +72,11 @@ public class LecturerServiceHandler
                         Console.WriteLine("Get student by ID");
                         Console.WriteLine("-------------------------");
                         Console.WriteLine("Enter student ID: ");
-                        var lecturerId = Console.ReadLine();
-                        var lecturer = LecturerServiceRepository.GetLecturerbyId(lecturerId);
+                        var id = Console.ReadLine();
+                        var lecturer = LecturerServiceRepository.GetLecturerbyId(id);
                         if (lecturer != null)
                         {
-                            Console.WriteLine(
-                                $"Lecturer Found: {lecturer.Name}.\nAge: {lecturer.Age}.\nGender: {lecturer.Gender}\nlecturerId: {lecturerId}");
+                            Console.WriteLine($"Lecturer Found: {lecturer.Name}.\nAge: {lecturer.Age}.\nAddress: {lecturer.Address}\nGender: {lecturer.Gender}\nlecturerId: {lecturer.StaffId}");
                         }
                         else
                         {
@@ -99,7 +98,7 @@ public class LecturerServiceHandler
                         else
                         {
                             foreach (var s in lecturers)
-                                Console.WriteLine($"Lecturer Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nLecturerId: {s.LecturerId}");
+                                Console.WriteLine($"Lecturer Name: {s.Name}.\nAge: {s.Age}.\nAddress: {s.Address}\nGender: {s.Gender}\nLecturerId: {s.StaffId}");
                         }
                         break;
                     case "4":

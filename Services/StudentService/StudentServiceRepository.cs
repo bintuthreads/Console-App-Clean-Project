@@ -5,7 +5,7 @@ namespace ConsoleAppCleanProject.Services.StudentService;
 
 public static class StudentServiceRepository
 {
-    private static Admin _admin = new Admin();
+    private static Admin _admin = new Admin(); 
     private static List<Student> _students = new List<Student>(); // saving the list of the students
 
 

@@ -34,7 +34,7 @@ public static class StudentUserInputHandler
             var running = true;
             while (running)
             {
-                Console.WriteLine("1. Add student 2.\nGet studentby ID. 3.\nview all students 4.\nDelete student 5.\nExit");
+                Console.WriteLine("1. Add student \n2.Get studentby ID. \n3.view all students \n4.Delete student \n5.1Exit");
                 Console.Write("Select an option: ");
 
                 var option = Console.ReadLine();
@@ -76,7 +76,7 @@ public static class StudentUserInputHandler
                         if (student != null)
                         {
                             Console.WriteLine(
-                                $"Student Found: {student.Name}.\nAge: {student.Age}.\nGender: {student.Gender}\nStudentId: {studentId}");
+                                $"Student Found: {student.Name}.\nAge: {student.Age}.\nAddress: {student.Address}\nGender: {student.Gender}\nStudentId: {studentId}");
                         }
                         else
                         {
@@ -98,7 +98,7 @@ public static class StudentUserInputHandler
                         else
                         {
                             foreach (var s in students)
-                                Console.WriteLine($"Student Name: {s.Name}.\nAge: {s.Age}.\nGender: {s.Gender}\nStudentId: {s.StudentId}");
+                                Console.WriteLine($"Student Name: {s.Name}.\nAge: {s.Age}.\nAddress: {s.Address}\nGender: {s.Gender}\nStudentId: {s.StudentId}");
                         }
                         break;
                     case "4":
